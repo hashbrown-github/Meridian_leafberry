@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="442" height="162.086" viewBox="0 0 442 162.086">
+  <defs>
+    <filter id="Meridian" x="0" y="0" width="442" height="151" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.129"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="logo" transform="translate(-100 -65)">
+    <g transform="matrix(1, 0, 0, 1, 100, 65)" filter="url(#Meridian)">
+      <text id="Meridian-2" data-name="Meridian" transform="translate(9 116)" fill="#fff" font-size="100" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Meridian</tspan></text>
+    </g>
+    <path id="Path_2" data-name="Path 2" d="M4121.461,204.688h141.323l-141.323,33.4Z" transform="translate(-4004.461 -11)" fill="#0a9d64"/>
+  </g>
+</svg>

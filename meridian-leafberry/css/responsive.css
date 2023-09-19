@@ -1,0 +1,78 @@
+
+
+
+@media screen and (max-width: 991px) {
+.loginText h2 {
+    font-size: 34px;
+    font-weight: 500;
+}
+	.loginText p {
+    max-width: 431px;
+    font-size: 14px;
+    margin-top: 89px;
+    font-weight: 300;
+    line-height: 20px;
+}
+	
+/*
+	.loginText-outer {
+    height: 100%;
+    margin-top: 29px;
+}
+*/
+	.formSection h3 {
+    margin-bottom: 48px;
+    margin-top: 30px;
+    font-size: 28px;
+    font-weight: 300;
+}
+	
+}
+@media screen and (max-width: 767px) {
+.loginText-outer {
+    margin-top: 0;
+}
+.loginText h2 {
+    font-size: 41px;
+}
+
+.loginText p {
+    font-size: 14px;
+    margin-top: 27px;
+    font-weight: 300;
+	    max-width: 100%;
+}
+	.formSection {
+    padding-left: 0;
+    margin-top: 30px;
+}
+	.formSection h3 {
+    margin-bottom: 35px;
+}
+	.signUpBox{
+		display: block;
+		text-align: center;
+	}
+	.signUpBox a {
+    margin-top: 44px;
+    display: inline-block;
+    float: none;;
+    margin-bottom: 45px;
+}
+	.loginOuter:before {
+    content: "";
+    width: 150px;
+    height: 150px;
+    right: 5%;
+    top: 18%;
+}
+	.loginOuter:after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    right: 1%;
+    top: 13%;
+}
+	
+	
+}

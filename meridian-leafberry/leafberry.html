@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<title>30 locations</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script> 
+<!--	<script src="https://cdn.jsdelivr.net/npm/mapbox-gl-animated-popup@v0.1.4/dist/mapbox-gl-animated-popup.min.js"></script>-->
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
+<link rel="shortcut icon" href="images/favicon.png"/>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<style>
+#marker {
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#1 {
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3"><img class="logo-img" src="images/mlogo.svg" alt=""></div>
+      <div class="col-9">
+        <ul class="login-menu">
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Sign Up</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="map-box">
+  <div class="map-box">
+    <div id="map"></div>
+    <a href="javascript:void(0)" class="botm-btn">Leafberry</a> <a href="javascript:void(0)" class="botm-btn locationBtn">Chandigarh</a>
+    <div class="media-options">
+      <ul>
+        <li><a class="selected" href="#"><img src="images/media-icons/FOB.svg"></a><span>FOB</span></li>
+        <li><a href="#"><img src="images/media-icons/Bus_Shulter.svg"></a><span>Bus Shulter</span></li>
+        <li><a href="#"><img src="images/media-icons/Cantilever.svg"></a><span>Cantilever</span></li>
+        <li><a href="#"><img src="images/media-icons/FOB.svg"></a><span>FOB</span></li>
+      </ul>
+    </div>
+    <div class="footeLocations">
+      <ul>
+        <li><a href="#">Gill road</a></li>
+        <li><a href="#">Gurudev nagar</a></li>
+        <li><a href="#">Bharat Nagar Chowk3</a></li>
+        <li><a href="#">Vishkarma Chowk</a></li>
+        <li><a href="#">Aarti Chowk - U3</a></li>
+        <li><a href="#">Jalandhar Bypass Chowk</a></li>
+        <li><a href="#">Gill Bridge Chowk</a></li>
+        <li><a href="#">Mall Road</a></li>
+        <li><a href="#">Vardhman Chowk</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="map-details" style="display: none;"> <a class="close-detail" href="#">X</a>
+    <div class="inner-section">
+      <div class="location-name">Vishvkarma Chawk</div>
+      <div class="toggle-box"> <!--Toggle- section--> 
+        <a id="fly1" class="data-box-title" data-toggle="collapse" href="#weeklyTraffic" role="button" aria-expanded="false" aria-controls="weeklyTraffic"> Weekly Traffic Count <i class="fas fa-chevron-down"></i></a><span class="counts">609309</span>
+        <div class="collapse" id="weeklyTraffic">
+          <div class="card card-body p-0 border-0">
+            <div class="weekDays">
+              <div class="allDays"> Sunday<span>84324</span> </div>
+              <div class="allDays"> Monday<span>94693</span> </div>
+              <div class="allDays"> Tuesday<span>88141</span> </div>
+              <div class="allDays"> Wednesday<span>93926</span> </div>
+              <div class="allDays"> Thursday<span>81577</span> </div>
+              <div class="allDays"> Friday<span>96517</span> </div>
+              <div class="allDays"> Saturday<span>70131</span> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="toggle-box"> <!--Toggle- section--> 
+        <a class="data-box-title" data-toggle="collapse" href="#hourlyTraffic" role="button" aria-expanded="false" aria-controls="hourlyTraffic"> Hourly Traffic Count <i class="fas fa-chevron-down"></i></a><span class="counts">609309</span>
+        <div class="collapse" id="hourlyTraffic">
+          <div class="card card-body p-0 border-0">
+            <select class="weekly-dropdown">
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thurusday</option>
+              <option>Friday</option>
+              <option>Saturday</option>
+              <option>Sunday</option>
+            </select>
+            <div class="weekDays">
+              <div class="allDays"> 9AM-10AM<span>5436</span> </div>
+              <div class="allDays"> 10AM-11AM<span>9556</span> </div>
+              <div class="allDays"> 11AM-12PM<span>7884</span> </div>
+              <div class="allDays"> 12PM-1PM<span>7458</span> </div>
+              <div class="allDays"> 1PM-2PM<span>6740</span> </div>
+              <div class="allDays"> 2PM-3PM<span>745</span> </div>
+              <div class="allDays"> 3PM-4PM<span>745</span> </div>
+              <div class="allDays"> 4PM-5PM<span>745</span> </div>
+              <div class="allDays"> 5PM-6PM<span>745</span> </div>
+              <div class="allDays"> 6PM-7PM<span>745</span> </div>
+              <div class="allDays"> 7PM-8PM<span>745</span> </div>
+              <div class="allDays"> 8PM-9PM<span>745</span> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="toggle-box"> <!--Toggle- section--> 
+        <a class="data-box-title" data-toggle="collapse" href="#TypeTraffic" role="button" aria-expanded="false" aria-controls="TypeTraffic"> Type Wise Traffic Count <i class="fas fa-chevron-down"></i></a><span class="counts">162837</span>
+        <div class="collapse" id="TypeTraffic">
+          <div class="card card-body p-0 border-0">
+            <select class="weekly-dropdown">
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thurusday</option>
+              <option>Friday</option>
+              <option>Saturday</option>
+              <option>Sunday</option>
+            </select>
+            <div class="weekDays">
+              <div class="allDays"> Two Wheeler<span>5436</span> </div>
+              <div class="allDays"> Cars<span>9556</span> </div>
+              <div class="allDays"> Bus<span>7884</span> </div>
+              <div class="allDays"> Truck<span>7458</span> </div>
+              <div class="allDays"> Others<span>6740</span> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vehicle-tabs">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item"> <a class="nav-link active" href="#hatchback" role="tab" data-toggle="tab">Hatchback</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#sedan" role="tab" data-toggle="tab">Sedan</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#suv" role="tab" data-toggle="tab">SUV</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#other-cars" role="tab" data-toggle="tab">Other Cars</a> </li>
+        </ul>
+        
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active show" id="hatchback">
+            <div class="progress-box">
+              <div class="progress-item">
+                <label>Monday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:80%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Tuesday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:40%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Wednesday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:50%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Thursday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:90%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Friday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:20%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Sunday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:90%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Monday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:60%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="sedan">
+            <div class="progress-box">
+              <div class="progress-item">
+                <label>Monday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:80%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Tuesday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:90%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Wednesday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:50%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Thursday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:70%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Friday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:90%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Sunday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:40%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Monday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:60%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="suv">
+            <div class="progress-box">
+              <div class="progress-item">
+                <label>Monday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:70%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Tuesday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:90%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Wednesday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:75%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Thursday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:70%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Friday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:40%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Sunday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:20%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Monday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:80%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="other-cars">
+            <div class="progress-box">
+              <div class="progress-item">
+                <label>Monday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:90%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Tuesday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:70%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Wednesday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:50%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Thursday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:80%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Friday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:60%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Sunday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:40%;"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <label>Monday</label>
+                <span>5487</span>
+                <div class="progress-bar">
+                  <div class="progress-status" style="width:90%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="location-video-outer"> <span>View Location Video</span>
+        <div class="site-video-section">
+          <button class="video-btn" type="button" data-toggle="modal" data-target="#siteVideo"> <i class="fa fa-play"></i> </button>
+          <img src="https://img.youtube.com/vi/uyqn12U85Sg/0.jpg"> </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="botton-buttons" style="display: none;">
+  <div class="state-abbv">Primary/Secondry</div>
+  <!--Button-->
+  <div class="toggleBtns"> <a href="#">Pharmacy</a>
+    <label class="switch">
+    <input type="checkbox">
+    <div class="slider round"> <span class="on">S</span> <span class="off">P</span> </div>
+    </label>
+  </div>
+  <!--Button-->
+  <div class="toggleBtns"> <a href="#">Labs</a>
+    <label class="switch">
+    <input type="checkbox">
+    <div class="slider round"> <span class="on">S</span> <span class="off">P</span> </div>
+    </label>
+  </div>
+  <!--Button-->
+  <div class="toggleBtns"> <a href="#">Physiotherapist</a>
+    <label class="switch">
+    <input type="checkbox">
+    <div class="slider round"> <span class="on">S</span> <span class="off">P</span> </div>
+    </label>
+  </div>
+</div>
+<!-- HTML CHANGES -->
+<button type="button" class="create_plan" data-toggle="modal" data-target="#createPlan_modal">Create Plan</button>
+<button class="poi-btn" id="poi_btn" type="button" data-toggle="modal" data-target="#poi">POI</button>
+
+<!-- Modal -->
+<div class="modal fade" id="siteVideo" tabindex="-1" role="dialog" aria-labelledby="siteVideo" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+      <div class="modal-body">
+        <iframe width="100%" height="431" src="https://www.youtube.com/embed/jaF9zTE0y5I"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="poi" tabindex="-1" role="dialog" aria-labelledby="poi" aria-hidden="true">
+  <div class="modal-dialog mw-100 w-75 modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+      <div class="modal-body">
+        <section class="map-box">
+          <div class="map-box">
+            <div id="map2"></div>
+            <a href="javascript:void(0)" class="botm-btn">Leafberry</a> <a href="javascript:void(0)" class="botm-btnlocation-btn">Chandigarh</a> </div>
+          <div class="poi-details"> 
+            <!--	  <a class="close-detail" href="#">X</a>-->
+            <div class="poi-section">
+              <ul>
+                <li class="atm"><a href="#"><span><img src="images/icons/ATM.png"></span> ATM</a></li>
+                <li class="bank"><a href="#"><span><img src="images/icons/bank.png"></span> Bank</a></li>
+                <li class="insurance"><a href="#"><span><img src="images/icons/insurance.png"></span> Insurance</a></li>
+                <li class="pharmacy"><a href="#"><span><img src="images/icons/pharmacy.png"></span> Pharmacy</a></li>
+                <li class="hospital"><a href="#"><span><img src="images/icons/hospital.png"></span> Hospital</a></li>
+                <li class="doctor"><a href="#"><span><img src="images/icons/doctor.png"></span> Doctor</a></li>
+                <li class="dentist"><a href="#"><span><img src="images/icons/dentist.png"></span> Dentist</a></li>
+                <li class="clinic"><a href="#"><span><img src="images/icons/clinic.png"></span> Clinic</a></li>
+                <li class="lab"><a href="#"><span><img src="images/icons/lab.png"></span> Lab</a></li>
+                <li class="physiotherapist"><a href="#"><span><img src="images/icons/phusiotherapist.png"></span> Physiotherapist</a></li>
+                <li class="university"><a href="#"><span><img src="images/icons/university.png"></span> University</a></li>
+                <li class="college"><a href="#"><span><img src="images/icons/college.png"></span> College</a></li>
+                <li class="school"><a href="#"><span><img src="images/icons/school.png"></span> School</a></li>
+                <li class="preschool"><a href="#"><span><img src="images/icons/pre_school.png"></span> PreSchool</a></li>
+                <li class="food-joints"><a href="#"><span><img src="images/icons/food_joint.png"></span> Food Joints</a></li>
+                <li class="clothing"><a href="#"><span><img src="images/icons/clothing.png"></span> Clothing</a></li>
+                <li class="shopping-mall"><a href="#"><span><img src="images/icons/shopping.png"></span> Shopping Mall</a></li>
+                <li class="entertainment"><a href="#"><span><img src="images/icons/entertainment.png"></span> Entertainment</a></li>
+                <li class="brokerage-firms"><a href="#"><span><img src="images/icons/brokerage.png"></span> Brokerage Firms</a></li>
+                <li class="automobile-dealers"><a href="#"><span><img src="images/icons/automobile.png"></span> Automobile Dealers</a></li>
+                <li class="home-appliances"><a href="#"><span><img src="images/icons/home appliances.png"></span> Home Appliances</a></li>
+                <li class="salon"><a href="#"><span><img src="images/icons/salon.png"></span> Salon</a></li>
+                <li class="temple"><a href="#"><span><img src="images/icons/temple.png"></span> Temple</a></li>
+                <li class="gurudwara"><a href="#"><span><img src="images/icons/gurudwara.png"></span> Gurudwara</a></li>
+                <li class="mosque"><a href="#"><span><img src="images/icons/mosque.png"></span> Mosque</a></li>
+                <li class="church"><a href="#"><span><img src="images/icons/church.png"></span> Church</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="poi-popup" style="display: none;">
+  <div class="poi-detail">
+    <div class="poi-item">POI Name<span>Allahabad Bank ATM</span></div>
+    <div class="poi-item">Category<span>P</span></div>
+    <div class="poi-item">POI Type<span>ATM</span></div>
+    <div class="poi-item">ZipCode<span>141010</span></div>
+    <div class="poi-item">latitude<span>30.8922108</span></div>
+    <div class="poi-item">longitude<span>75.9042738</span></div>
+	<div class="poi-item">Address<span>Metro Road, Focal Point, Ludhiana</span></div>
+  </div>
+</div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibWVyaWRpYW4wIiwiYSI6ImNqejNxcDhobzA1dmgzb28xeWVpOWE2NDYifQ.o5MPxFVCgW4EIXIOswUdXg';
+  var monument = [75.858519, 30.900503];
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/meridian0/ckk8248nz0iah18qlz1c9bnv7',
+    center: monument,
+    zoom: 15
+  });
+  var map2 = new mapboxgl.Map({
+    container: 'map2',
+    style: 'mapbox://styles/meridian0/ckk8248nz0iah18qlz1c9bnv7', // stylesheet location
+    center: monument, // starting position [lng, lat]
+    zoom: 15 // starting zoom
+  });
+// create the popup
+	var popup = new mapboxgl.Popup({ offset: 25 })
+//    var popup = new ({
+//        offset: 25,
+//        openingAnimation: {
+//            duration: 1000,
+//            easing: 'easeOutElastic'
+//        },
+//        closingAnimation: {
+//            duration: 300,
+//            easing: 'easeInBack'
+//        }
+//    })
+
+.setHTML('<div class="detail-box"><div class="location-name">Vishkarma Chowk facing dash</div><a class="infoBtn" href="#"><i class="fas fa-info"></i></a><div class="media-img"><img src="images/img.png"><div class="map-icons"><a href="#"><img src="images/map-view.svg"></a><a href="#"><img src="images/billboard-view.svg"></a></div></div><div class="all-detail"><div class="type-detail">Media Type<span>Mega BQS</span></div><div class="type-detail">Weekly Impressions<span>35830</span></div><div class="type-detail">Area<span>358</span></div><div class="type-detail">Media Owner<span>JCDecaus</span></div><div class="type-detail">Ipsum itme<span>Lorem</span></div><div class="type-detail">Lorem Ipsim<span>sample data</span></div></div><div class="media-size"><button type="button" class="mediaAdd_btn"><i class="fas fa-plus"></i> Add</button><div class="size-outer"><span class="size-icon"><img src="images/size.svg"></span><span class="flex-width">20</span><span class="flex-height">8</span></div></div><div class="availability"><div class="ul-items"><div class="item"><label>Sep</label><span>01 | 15</span><div class="avail"></div></div><div class="item"><label>Oct</label><span>15 | 30</span><div class="avail"></div></div><div class="item booked"><label>Oct</label><span>15 | 30</span><div class="avail"></div></div><div class="item"><label>Nov</label><span>15 | 30</span><div class="avail"></div></div><div class="item"><label>Dec</label><span>15 | 30</span><div class="avail"></div></div><div class="item"><label>Dec</label><span>15 | 30</span><div class="avail"></div></div></div></div><div class="price-book"><div class="ad-price"></div><div class="book-ad"><a class="campaign-btn" href="#">Add to Capmpaign</a></div></div></div>')
+
+//.addTo(map);
+	
+	
+	
+   // create DOM element for the marker
+    var el = document.createElement('div');
+    el.id = 'marker';
+
+    // create the marker
+    new mapboxgl.Marker(el)
+        .setLngLat(monument)
+        .setPopup(popup) // sets a popup on this marker
+        .addTo(map);
+	
+</script> 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> 
+<script src="js/bootstrap.js"></script> 
+<script>
+	$( document ).ready(function() {
+		$(".botm-btn").click(function(){
+  		$(".media-options").toggleClass("open");
+	});
+		
+		$(".footeLocations a").click(function(){
+				$(".media-options").addClass("open");						 
+		});
+});
+	</script>
+<div class="detail-box" style="display: none;">
+  <div class="location-name">Vishkarma Chowk facing dash</div>
+  <a class="infoBtn" href="#"><i class="fas fa-info"></i></a>
+  <div class="media-img"><img src="img.png" alt="">
+    <div class="map-icons"> <a href="#"><img src="images/map-view.svg"></a> <a href="#"><img src="images/billboard-view.svg"></a> </div>
+  </div>
+  <div class="all-detail">
+    <div class="type-detail">Media Type<span>Mega BQS</span></div>
+    <div class="type-detail">Weekly Impressions<span>35830</span></div>
+    <div class="type-detail">Area<span>358</span></div>
+    <div class="type-detail">Media Owner<span>JCDecaus</span></div>
+    <div class="type-detail">Ipsum itme<span>Lorem</span></div>
+    <div class="type-detail">Lorem Ipsim<span>sample data</span></div>
+  </div>
+  <div class="media-size">
+    <!-- HTML CHANGES -->
+    <button type="button" class="mediaAdd_btn"><i class="fas fa-plus"></i> Add</button>
+    <div class="size-outer"> <span class="size-icon"><img src="images/size.svg"></span> <span class="flex-width">20</span> <span class="flex-height">8</span> </div>
+  </div>
+</div>
+<!-- BEGIN CREATE PLAN POPUP -->
+<div class="modal fade" id="createPlan_modal" tabindex="-1" role="dialog" aria-labelledby="createPlan_modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createPlan_modalLabel">Create Plan</h5>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-12">
+            <div class="form-group">
+              <label>Budget</label>
+              <div class="input_txt">
+                <span class="budget_mea">Rs.</span>
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-12">
+            <div class="form-group">
+              <label>Choose your Category</label>
+              <div class="row">
+                <div class="col-lg-4 col-md-4 col-4">
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="1" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Bus</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="2" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Cars</span>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-4">
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="3" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Truck</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="4" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Two Wheelers</span>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-4">
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="5" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Others</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="6" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Select All</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-12">
+            <div class="form-group mb-0">
+              <label>Select POIs</label>
+              <div class="row">
+                <div class="col-lg-4 col-md-4 col-4">
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="1" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Appliances</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="2" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Automobiles</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="3" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Bank</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="4" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Brokerage</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="5" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Clinic</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="6" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Clothing</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="7" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>College</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="8" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Dentist</span>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-4">
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="9" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Doctor</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="10" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Entertainment</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="11" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Food</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="12" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Hospital</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="13" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Insurance</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="14" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Lab</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="15" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Mall</span>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-4">
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="16" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Pharmacy</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="17" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Physiotherapist</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="18" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>PreSchool</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="19" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Salon</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="20" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>School</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="21" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>University</span>
+                  </div>
+                  <div class="interest_item">
+                    <label class="m-checkbox m-checkbox--solid m-checkbox--single">
+                      <input name="22" type="checkbox">
+                      <span></span> 
+                    </label>
+                    <span>Select ALL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+      <div class="modal-footer">
+        <button type="button" class="btn preview_Loc" data-dismiss="modal">Close</button>
+        <button type="button" class="btn email_plan">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END CREATE PLAN POPUP -->
+<!-- BEGIN HTML LOCATION POPUP -->
+<div class="loactions_popup">
+  <h4>Added Locations</h4>
+  <ul>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_pinkDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_blueDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_redDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_yellowDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_pinkDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_blueDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_redDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_yellowDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_pinkDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_blueDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_redDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_yellowDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_pinkDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_blueDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_redDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_yellowDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_pinkDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_blueDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_redDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_yellowDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+    <li>
+      <p><span class="left_Lnme"><span class="dot_icon list_blueDot"> </span><span class="txt_width">Metro Road, Focal Point, Ludhiana</span></span><span class="right_dlt"><button type="button">Delete </button></span></p>
+    </li>
+  </ul>
+  <div class="lations_popupF">
+    <button type="button" class="preview_Loc">Preview </button>
+    <button type="button" class="email_plan" data-toggle="modal" data-target="#emailPlan_modal">Email Plan </button>
+  </div>
+</div>
+<!-- END HTML LOCATION POPUP -->
+<!-- BEGIN LOCATION PREVIEW POPUP -->
+<div id="locPreview_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="locPreview_modalLabel">Preview</h5>
+        <button type="button" class="close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-12">
+            <p>The Campaign would generate an estimated <b>67.6 million impressions</b> with <b>42.7 percent reach</b> and <b>10.8 frequency</b>.</p>
+            <div id="locations_preview" style="width: 100%; height: 100%;">
+               .... MAP ....
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+<!-- END LOCATION PREVIEW POPUP -->
+<!-- BEGIN EMAIL PLAN POPUP -->
+<div class="modal fade" id="emailPlan_modal" tabindex="-1" role="dialog" aria-labelledby="emailPlan_modalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="emailPlan_modalLabel">Email Plan</h5>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-12">
+            <div class="form-group">
+              <label>Enter your email</label>
+              <input type="text" class="form-control" />
+              <p class="popupErr_msg">Please enter your email</p>
+            </div>
+          </div>
+        </div>
+      </div>  
+      <div class="modal-footer">
+        <button type="button" class="btn preview_Loc" data-dismiss="modal">Close</button>
+        <button type="button" class="btn email_plan">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END EMAIL PLAN POPUP -->
+
+</body>
+</html>

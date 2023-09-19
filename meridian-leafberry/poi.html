@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<title>30 locations</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
+<!--	<script src="https://cdn.jsdelivr.net/npm/mapbox-gl-animated-popup@v0.1.4/dist/mapbox-gl-animated-popup.min.js"></script>-->
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
+	<link rel="shortcut icon" href="images/favicon.png"/>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<style>
+#marker {
+background-size: cover;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+}
+#1 {
+background-size: cover;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+}
+ 
+	
+
+</style>
+</head>
+<body>
+<header>
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-3"><img class="logo-img" src="images/mlogo.svg" alt=""></div>
+		<div class="col-9">
+		<ul class="login-menu">
+			<li><a href="#">Login</a></li>
+			<li><a href="#">Sign Up</a></li>
+		</ul>
+		</div>
+	</div>	
+		</div>
+</header>
+<section class="map-box">
+  <div class="map-box">
+    <div id="map"></div>
+	  <a href="javascript:void(0)" class="botm-btn">Leafberry</a>
+  </div>
+  <div class="poi-details"> 
+	  		<div class="clusterHeatmap">
+			<label><input name="1" type="radio"> Cluster</label>
+			<label><input name="1" type="radio">Heatmap</label>
+		</div>
+<!--	  <a class="close-detail" href="#">X</a>-->
+    <div class="poi-section">
+
+		<ul>
+			<li class="atm"><span class="poiactive" style="background: rgb(1, 97, 174);"></span><a href="#"><span><img src="images/icons/ATM.png"></span> ATM</a></li>
+			<li class="bank"><span class="poiactive" style="background:rgb(62, 124, 39);"></span><a href="#"><span><img src="images/icons/bank.png"></span> Bank</a></li>
+			<li class="insurance"><span class="poiactive" style="background: rgb(6, 195, 189);"></span><a href="#"><span><img src="images/icons/insurance.png"></span> Insurance</a></li>
+			<li class="pharmacy"><span class="poiactive"></span><a href="#"><span><img src="images/icons/pharmacy.png"></span> Pharmacy</a></li>
+			<li class="hospital"><span class="poiactive"></span><a href="#"><span><img src="images/icons/hospital.png"></span> Hospital</a></li>
+			<li class="doctor"><a href="#"><span><img src="images/icons/doctor.png"></span> Doctor</a></li>
+			<li class="dentist disable"><a href="#"><span><img src="images/icons/dentist.png"></span> Dentist</a></li>
+			<li class="clinic"><a href="#"><span><img src="images/icons/clinic.png"></span> Clinic</a></li>
+			<li class="lab"><a href="#"><span><img src="images/icons/lab.png"></span> Lab</a></li>
+			<li class="physiotherapist"><a href="#"><span><img src="images/icons/phusiotherapist.png"></span> Physiotherapist</a></li>
+			<li class="university"><a href="#"><span><img src="images/icons/university.png"></span> University</a></li>
+			<li class="college"><a href="#"><span><img src="images/icons/college.png"></span> College</a></li>
+			<li class="school"><a href="#"><span><img src="images/icons/school.png"></span> School</a></li>
+			<li class="preschool"><a href="#"><span><img src="images/icons/pre_school.png"></span> PreSchool</a></li>
+			<li class="food-joints"><a href="#"><span><img src="images/icons/food_joint.png"></span> Food Joints</a></li>
+			<li class="clothing"><a href="#"><span><img src="images/icons/clothing.png"></span> Clothing</a></li>
+			<li class="shopping-mall"><a href="#"><span><img src="images/icons/shopping.png"></span> Shopping Mall</a></li>
+			<li class="entertainment"><a href="#"><span><img src="images/icons/entertainment.png"></span> Entertainment</a></li>
+			<li class="brokerage-firms"><a href="#"><span><img src="images/icons/brokerage.png"></span> Brokerage Firms</a></li>
+			<li class="automobile-dealers"><a href="#"><span><img src="images/icons/automobile.png"></span> Automobile Dealers</a></li>
+			<li class="home-appliances"><a href="#"><span><img src="images/icons/home appliances.png"></span> Home Appliances</a></li>
+			<li class="salon"><a href="#"><span><img src="images/icons/salon.png"></span> Salon</a></li>
+			<li class="temple"><a href="#"><span><img src="images/icons/temple.png"></span> Temple</a></li>
+			<li class="gurudwara"><a href="#"><span><img src="images/icons/gurudwara.png"></span> Gurudwara</a></li>
+			<li class="mosque"><a href="#"><span><img src="images/icons/mosque.png"></span> Mosque</a></li>
+			<li class="church"><a href="#"><span><img src="images/icons/church.png"></span> Church</a></li>
+		</ul>
+    </div>
+  </div>
+</section>
+
+	
+	
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibWVyaWRpYW4wIiwiYSI6ImNqejNxcDhobzA1dmgzb28xeWVpOWE2NDYifQ.o5MPxFVCgW4EIXIOswUdXg';
+ var monument = [75.858519, 30.900503];
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/meridian0/ckk8248nz0iah18qlz1c9bnv7',
+        center: monument,
+        zoom: 15
+		
+    });
+	
+
+// create the popup
+	var popup = new mapboxgl.Popup({ offset: 25 })
+//    var popup = new ({
+//        offset: 25,
+//        openingAnimation: {
+//            duration: 1000,
+//            easing: 'easeOutElastic'
+//        },
+//        closingAnimation: {
+//            duration: 300,
+//            easing: 'easeInBack'
+//        }
+//    })
+
+.setHTML('<div class="detail-box"><div class="location-name">Vishkarma Chowk facing dash</div><a class="infoBtn" href="#"><i class="fas fa-info"></i></a><div class="media-img"><img src="images/img.png"><div class="map-icons"><a href="#"><img src="images/map-view.svg"></a><a href="#"><img src="images/billboard-view.svg"></a></div></div><div class="all-detail"><div class="type-detail">Media Type<span>Mega BQS</span></div><div class="type-detail">Weekly Impressions<span>35830</span></div><div class="type-detail">Area<span>358</span></div><div class="type-detail">Media Owner<span>JCDecaus</span></div><div class="type-detail">Ipsum itme<span>Lorem</span></div><div class="type-detail">Lorem Ipsim<span>sample data</span></div></div><div class="media-size"><div class="size-outer"><span class="size-icon"><img src="images/size.svg"></span><span class="flex-width">20</span><span class="flex-height">8</span></div></div><div class="availability"><div class="ul-items"><div class="item"><label>Sep</label><span>01 | 15</span><div class="avail"></div></div><div class="item"><label>Oct</label><span>15 | 30</span><div class="avail"></div></div><div class="item booked"><label>Oct</label><span>15 | 30</span><div class="avail"></div></div><div class="item"><label>Nov</label><span>15 | 30</span><div class="avail"></div></div><div class="item"><label>Dec</label><span>15 | 30</span><div class="avail"></div></div><div class="item"><label>Dec</label><span>15 | 30</span><div class="avail"></div></div></div></div><div class="price-book"><div class="ad-price"></div><div class="book-ad"><a class="campaign-btn" href="#">Add to Capmpaign</a></div></div></div>')
+
+//.addTo(map);
+	
+	
+	
+   // create DOM element for the marker
+    var el = document.createElement('div');
+    el.id = 'marker';
+
+    // create the marker
+    new mapboxgl.Marker(el)
+        .setLngLat(monument)
+        .setPopup(popup) // sets a popup on this marker
+        .addTo(map);
+	
+
+	
+</script> 
+	
+
+	
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="js/bootstrap.js"></script>
+	<script>
+	$( document ).ready(function() {
+		$(".botm-btn").click(function(){
+  		$(".media-options").toggleClass("open");
+	});
+		
+		$(".footeLocations a").click(function(){
+				$(".media-options").addClass("open");						 
+		});
+});
+	</script>
+	<div class="detail-box" style="display: none;">
+			<div class="location-name">Vishkarma Chowk facing dash</div>
+		<a class="infoBtn" href="#"><i class="fas fa-info"></i></a>
+		<div class="media-img"><img src="img.png" alt="">
+		<div class="map-icons">
+			<a href="#"><img src="images/map-view.svg"></a>	
+			<a href="#"><img src="images/billboard-view.svg"></a>	
+		</div>
+		</div>
+	
+		<div class="all-detail">
+			<div class="type-detail">Media Type<span>Mega BQS</span></div>
+			<div class="type-detail">Weekly Impressions<span>35830</span></div>
+			<div class="type-detail">Area<span>358</span></div>
+			<div class="type-detail">Media Owner<span>JCDecaus</span></div>
+			<div class="type-detail">Ipsum itme<span>Lorem</span></div>
+			<div class="type-detail">Lorem Ipsim<span>sample data</span></div>
+		</div>
+		<div class="media-size">
+			<div class="size-outer">
+			<span class="size-icon"><img src="images/size.svg"></span>
+			<span class="flex-width">20</span>
+			<span class="flex-height">8</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
